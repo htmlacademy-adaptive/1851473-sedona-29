@@ -1,0 +1,32 @@
+body {
+  font-family: $main-font;
+  font-size: 14px;
+  color: $special-dark-grey;
+  line-height: 18px;
+  background-color: #ffffff;
+  margin: 0;
+  min-width: 320px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (min-width: $tablet-width) {
+  body {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
