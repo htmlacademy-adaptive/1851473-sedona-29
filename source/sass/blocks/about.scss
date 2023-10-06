@@ -35,6 +35,20 @@
   &--gray {
     background-color: #eeeeee;
     padding: 24px 18px;
+    position: relative;
+
+    &:not(:last-child)::after {
+      @include pseudo;
+      height: 1px;
+      left: 18px;
+      bottom: 0;
+      right: 18px;
+      background-color: #d6d6d6;
+    }
+  }
+
+  img {
+    vertical-align: bottom;
   }
 
   &:first-child {
