@@ -4,6 +4,11 @@ import sass from 'gulp-dart-sass';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import browser from 'browser-sync';
+import svgo from 'gulp-svgmin';
+import svgstore from 'gulp-svgstore';
+import cheerio from 'gulp-cheerio';
+import rename from 'gulp-rename';
+
 
 // Styles
 
@@ -17,6 +22,23 @@ export const styles = () => {
     .pipe(gulp.dest('source/css', { sourcemaps: '.' }))
     .pipe(browser.stream());
 }
+
+export const sprite = () => {
+  return gulp.src('source/img/icons-sprite/*.svg')
+  .pipe(svgo())
+  .pipe(cheerio({
+    run: ($) => {
+        $('[fill]').removeAttr('fill'),
+        $('[stroke]').removeAttr('stroke');
+    },
+    parserOptions: { xmlMode: true }
+  }))
+  .pipe(svgstore({
+  inlineSvg: true
+  }))
+  .pipe(rename('sprite.svg'))
+  .pipe(gulp.dest('source/img'));
+  }
 
 // Server
 

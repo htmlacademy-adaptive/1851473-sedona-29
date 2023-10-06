@@ -1,0 +1,9 @@
+.promo {
+  background-image: url("../img/promo-bottom.svg"), url("../img/back-mobile.jpg");
+  padding: 90px 15px 80px 15px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: 100% 57px, cover;
+  background-color: #7faccd;
+  background-position: bottom, top;
+}
